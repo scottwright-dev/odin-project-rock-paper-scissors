@@ -17,3 +17,5 @@ The user receives a prompt to make their choice to play against the computer. Th
 **Thoughts and observations**
 
 Overall, this project helped me to deepen my understanding of JavaScript fundamentals and apply them to a fun and engaging project. I look forward to returning to the project to implement a GUI to allow for a more engaging user experience.
+
+[CLICK HERE FOR DEMO](https://scottwright-io.github.io/odin-project-rock-paper-scissors/)
