@@ -1,53 +1,66 @@
+// An array of choices available in the game
 const choices = ["rock", "paper", "scissors"];
 
-// generate random computer choice
+// Generate random computer choice
 const getComputerChoice = () => {
   const randomNumber = Math.floor(Math.random() * 3);
   return choices[randomNumber];
 };
 
+// Function that runs the game
 function game() {
   let playerScore = 0;
   let computerScore = 0;
-  // play 5 rounds
+
+  // Play 5 rounds
   for (let roundCount = 1; roundCount <= 5; roundCount++) {
-    // prompt for player choice input and remove case sensitivity
+    // Prompt for player choice input and remove case sensitivity
     let playerSelection = prompt(
       `Enter your choice: rock, paper, or scissors. Round ${roundCount} of 5.`
     );
-    // catch when player presses cancel
+
+    // Catch when player presses cancel
     if (playerSelection === null) {
       console.log(
         "Your game has been cancelled. If you wish to play again, please refresh your browser!"
       );
       return;
-      // catch when player enters an empty string
+
+      // Catch when player enters an empty string
     } else if (playerSelection === "") {
       console.log(
         "You didn't type anything! Refresh the browser then type either rock, paper or scissors."
       );
-      // do not count as a round
+
+      // Do not count as a round
       roundCount--;
       continue;
     }
+
+    // Convert player's selection to lowercase
     playerSelection = playerSelection.toLowerCase();
-    // get computer's choice
+
+    // Get computer's choice
     const computerSelection = getComputerChoice();
-    // catch if player makes an invalid input
+
+    // Catch if player makes an invalid input
     if (!choices.includes(playerSelection)) {
       console.log(
         `Invalid choice! Please choose either ${choices.join(", ")}.`
       );
-      // do not count as a round
+
+      // Do not count as a round
       roundCount--;
       continue;
     }
-    // tie game cases
+
+    // Handle tie game cases
     if (playerSelection === computerSelection) {
       console.log(
         `Round ${roundCount}: It's a tie! Both players chose ${playerSelection} `
       );
-      // winning cases
+
+      // Handle winning cases
     } else if (
       (playerSelection === "rock" && computerSelection === "scissors") ||
       (playerSelection === "scissors" && computerSelection === "paper") ||
@@ -57,7 +70,8 @@ function game() {
         `Round ${roundCount}: You win! ${playerSelection} beats ${computerSelection}!`
       );
       playerScore++;
-      // losing cases
+
+      // Handle losing cases
     } else {
       console.log(
         `Round ${roundCount}: You lose! ${computerSelection} beats ${playerSelection}!`
@@ -65,7 +79,8 @@ function game() {
       computerScore++;
     }
   }
-  // print final result of the game
+
+  // Print final result of the game
   if (playerScore > computerScore) {
     console.log(
       `Result: You won the game! Congratulations! The final score was: you ${playerScore} computer: ${computerScore}.`
@@ -81,4 +96,5 @@ function game() {
   }
 }
 
+// Call the game function to start playing
 game();
