@@ -12,72 +12,73 @@ function game() {
   let playerScore = 0;
   let computerScore = 0;
 
-  // Play 5 rounds
-  for (let roundCount = 1; roundCount <= 5; roundCount++) {
-    // Prompt for player choice input and remove case sensitivity
-    let playerSelection = prompt(
-      `Enter your choice: rock, paper, or scissors. Round ${roundCount} of 5.`
+  // Prompt for player choice input and remove case sensitivity
+  let playerSelection = prompt(
+    `Enter your choice: rock, paper, or scissors.`
+  );
+
+  // Catch when player presses cancel
+  if (playerSelection === null) {
+    console.log(
+      "Your game has been cancelled. If you wish to play again, please refresh your browser!"
+    );
+    return;
+
+    // Catch when player enters an empty string
+  } else if (playerSelection === "") {
+    console.log(
+      "You didn't type anything! Refresh the browser then type either rock, paper or scissors."
     );
 
-    // Catch when player presses cancel
-    if (playerSelection === null) {
-      console.log(
-        "Your game has been cancelled. If you wish to play again, please refresh your browser!"
-      );
-      return;
+    // Restart game
+    game();
+    return;
+  }
 
-      // Catch when player enters an empty string
-    } else if (playerSelection === "") {
-      console.log(
-        "You didn't type anything! Refresh the browser then type either rock, paper or scissors."
-      );
+  // Convert player's selection to lowercase
+  playerSelection = playerSelection.toLowerCase();
 
-      // Do not count as a round
-      roundCount--;
-      continue;
-    }
+  // Get computer's choice
+  const computerSelection = getComputerChoice();
 
-    // Convert player's selection to lowercase
-    playerSelection = playerSelection.toLowerCase();
+  // Catch if player makes an invalid input
+  if (!choices.includes(playerSelection)) {
+    console.log(
+      `Invalid choice! Please choose either ${choices.join(", ")}.`
+    );
 
-    // Get computer's choice
-    const computerSelection = getComputerChoice();
+    // Restart game
+    game();
+    return;
+  }
 
-    // Catch if player makes an invalid input
-    if (!choices.includes(playerSelection)) {
-      console.log(
-        `Invalid choice! Please choose either ${choices.join(", ")}.`
-      );
+  // Handle tie game cases
+  if (playerSelection === computerSelection) {
+    console.log(
+      `It's a tie! Both players chose ${playerSelection} `
+    );
 
-      // Do not count as a round
-      roundCount--;
-      continue;
-    }
+    // Restart game
+    game();
+    return;
 
-    // Handle tie game cases
-    if (playerSelection === computerSelection) {
-      console.log(
-        `Round ${roundCount}: It's a tie! Both players chose ${playerSelection} `
-      );
+    // Handle winning cases
+  } else if (
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "scissors" && computerSelection === "paper") ||
+    (playerSelection === "paper" && computerSelection === "rock")
+  ) {
+    console.log(
+      `You win! ${playerSelection} beats ${computerSelection}!`
+    );
+    playerScore++;
 
-      // Handle winning cases
-    } else if (
-      (playerSelection === "rock" && computerSelection === "scissors") ||
-      (playerSelection === "scissors" && computerSelection === "paper") ||
-      (playerSelection === "paper" && computerSelection === "rock")
-    ) {
-      console.log(
-        `Round ${roundCount}: You win! ${playerSelection} beats ${computerSelection}!`
-      );
-      playerScore++;
-
-      // Handle losing cases
-    } else {
-      console.log(
-        `Round ${roundCount}: You lose! ${computerSelection} beats ${playerSelection}!`
-      );
-      computerScore++;
-    }
+    // Handle losing cases
+  } else {
+    console.log(
+      `You lose! ${computerSelection} beats ${playerSelection}!`
+    );
+    computerScore++;
   }
 
   // Print final result of the game
