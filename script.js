@@ -90,7 +90,7 @@ function playRound(playerSelection) {
       resultsDiv.innerHTML += roundResult + "<br>";
     } else {
       roundResult = `Result: You lost the game! <br/>
-      The final score was: you ${playerScore} computer: ${computerScore}.`;
+      The final score was: you: ${playerScore} computer: ${computerScore}.`;
       resultsDiv.innerHTML += roundResult + "<br>";
     }
   }
