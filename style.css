@@ -28,6 +28,7 @@ body {
   
   #results {
     width: 100%;
+    text-align: center;
   }
   
   #playAgainButton {
