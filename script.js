@@ -85,10 +85,12 @@ function playRound(playerSelection) {
   if (playerScore === 5 || computerScore === 5) {
     // Print final result of the game
     if (playerScore > computerScore) {
-      roundResult = `Result: You won the game! Congratulations! The final score was: you ${playerScore} computer: ${computerScore}.`;
+      roundResult = `Result: You won the game! Congratulations! <br/> 
+      The final score was: you ${playerScore} computer: ${computerScore}.`;
       resultsDiv.innerHTML += roundResult + "<br>";
     } else {
-      roundResult = `Result: You lost the game! The final score was: you ${playerScore} computer: ${computerScore}.`;
+      roundResult = `Result: You lost the game! <br/>
+      The final score was: you ${playerScore} computer: ${computerScore}.`;
       resultsDiv.innerHTML += roundResult + "<br>";
     }
   }
