@@ -1,5 +1,7 @@
 **Odin Project: Rock, Paper, Scissors**
 
+[CLICK HERE FOR DEMO](https://scottwright-dev.github.io/odin-project-rock-paper-scissors/)
+
 This is a simple implementation of the classic game "rock, paper, scissors" written in JavaScript and HTML. The logic has been updated to include a button-based UI, enabling user interactions for a better experience.
 
 **Description**
@@ -18,5 +20,3 @@ The user can play the game by clicking on buttons to make their choice to play a
 **Thoughts and Observations**
 
 This project helped me to deepen my understanding of JavaScript fundamentals and apply them to a fun and engaging project. I enjoyed the process of adding a UI to the game using event listeners and DOM manipulation which was challenging but rewarding. I feel the updated version is more engaging and user-friendly. While The UI has not been fully styled yet, I intend to return to the project in the future to improve the user experience further. However, as it stands it is a functional game which meets all the brief requirements. 
-
-[CLICK HERE FOR DEMO](https://scottwright-io.github.io/odin-project-rock-paper-scissors/)
